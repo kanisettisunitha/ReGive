@@ -1,6 +1,4 @@
-// ===== JavaScript Logic =====
 
-// Select elements
 const formSection = document.getElementById("formSection");
 const productSection = document.getElementById("productSection");
 const homeLink = document.getElementById("homeLink");
@@ -8,7 +6,7 @@ const productsLink = document.getElementById("productsLink");
 const productList = document.getElementById("productList");
 const addProductBtn = document.getElementById("addProduct");
 
-// Switch between Home and Products pages
+
 homeLink.addEventListener("click", () => {
   formSection.classList.remove("hidden");
   productSection.classList.add("hidden");
@@ -19,7 +17,6 @@ productsLink.addEventListener("click", () => {
   productSection.classList.remove("hidden");
 });
 
-// Add Product Logic
 addProductBtn.addEventListener("click", () => {
   const name = document.getElementById("productName").value.trim();
   const desc = document.getElementById("description").value.trim();
@@ -33,7 +30,6 @@ addProductBtn.addEventListener("click", () => {
     return;
   }
 
-  // Create Product Card
   const productDiv = document.createElement("div");
   productDiv.className = "product-card";
 
@@ -52,13 +48,11 @@ addProductBtn.addEventListener("click", () => {
     <button class="collect-btn">Mark as Collected</button>
   `;
 
-  // "Mark as Collected" button removes product
   const collectBtn = productDiv.querySelector(".collect-btn");
   collectBtn.addEventListener("click", () => {
     productDiv.remove();
   });
 
-  // Add to Product List
   productList.appendChild(productDiv);
 
   // Clear Form
