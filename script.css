@@ -1,0 +1,68 @@
+// ===== JavaScript Logic =====
+
+// Select elements
+const formSection = document.getElementById("formSection");
+const productSection = document.getElementById("productSection");
+const homeLink = document.getElementById("homeLink");
+const productsLink = document.getElementById("productsLink");
+const productList = document.getElementById("productList");
+const addProductBtn = document.getElementById("addProduct");
+
+// Switch between Home and Products pages
+homeLink.addEventListener("click", () => {
+  formSection.classList.remove("hidden");
+  productSection.classList.add("hidden");
+});
+
+productsLink.addEventListener("click", () => {
+  formSection.classList.add("hidden");
+  productSection.classList.remove("hidden");
+});
+
+// Add Product Logic
+addProductBtn.addEventListener("click", () => {
+  const name = document.getElementById("productName").value.trim();
+  const desc = document.getElementById("description").value.trim();
+  const addr = document.getElementById("address").value.trim();
+  const contact = document.getElementById("contact").value.trim();
+  const imageInput = document.getElementById("productImage");
+  const imageFile = imageInput.files[0];
+
+  if (!name || !desc || !addr || !contact) {
+    alert("⚠️ Please fill all required fields!");
+    return;
+  }
+
+  // Create Product Card
+  const productDiv = document.createElement("div");
+  productDiv.className = "product-card";
+
+  let imageHTML = "";
+  if (imageFile) {
+    const imageURL = URL.createObjectURL(imageFile);
+    imageHTML = `<img src="${imageURL}" alt="${name}">`;
+  }
+
+  productDiv.innerHTML = `
+    ${imageHTML}
+    <h3>${name}</h3>
+    <p><strong>Description:</strong> ${desc}</p>
+    <p><strong>Address:</strong> ${addr}</p>
+    <p><strong>Contact:</strong> ${contact}</p>
+    <button class="collect-btn">Mark as Collected</button>
+  `;
+
+  // "Mark as Collected" button removes product
+  const collectBtn = productDiv.querySelector(".collect-btn");
+  collectBtn.addEventListener("click", () => {
+    productDiv.remove();
+  });
+
+  // Add to Product List
+  productList.appendChild(productDiv);
+
+  // Clear Form
+  document.getElementById("donationForm").reset();
+
+  alert("✅ Product added successfully!");
+});
