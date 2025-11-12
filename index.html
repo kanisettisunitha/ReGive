@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReGive - Donation Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>ReGive</h1>
+    <nav>
+      <a href="#" id="homeLink">Home</a>
+      <a href="#" id="productsLink">Products</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Form Section -->
+    <section id="formSection" class="form-container">
+      <h2>Donate a Product</h2>
+      <form id="donationForm" onsubmit="return false;">
+        <input type="text" id="productName" placeholder="Product Name" required />
+        <textarea id="description" placeholder="Description" required></textarea>
+        <input type="text" id="address" placeholder="Address" required />
+        <input type="tel" id="contact" placeholder="Contact Number" required />
+        <input type="file" id="productImage" accept="image/*" />
+        <button id="addProduct">Add Product</button>
+      </form>
+    </section>
+
+    <!-- Products Section -->
+    <section id="productSection" class="hidden">
+      <h2>Available Products</h2>
+      <div id="productList" class="product-list"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
