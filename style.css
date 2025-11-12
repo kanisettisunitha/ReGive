@@ -1,4 +1,4 @@
-/* ===== Global Reset ===== */
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,6 @@ body {
   min-height: 100vh;
 }
 
-/* ===== Header ===== */
 header {
   background: #222;
   color: white;
@@ -45,8 +44,6 @@ main {
   max-width: 900px;
   margin: auto;
 }
-
-/* ===== Form Section ===== */
 .form-container {
   background: white;
   border-radius: 15px;
@@ -100,7 +97,6 @@ button:hover {
   transform: translateY(-2px);
 }
 
-/* ===== Product List ===== */
 .product-list {
   margin-top: 40px;
   display: grid;
@@ -153,7 +149,7 @@ button:hover {
   display: none;
 }
 
-/* ===== Responsive Design ===== */
+
 @media (max-width: 768px) {
   header {
     flex-direction: column;
